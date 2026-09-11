@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html, body {
+  height: 100%;
+  background: #070512;
+  color: #fff;
+}
+
+body {
+  font-feature-settings: "ss01", "cv01", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overscroll-behavior: none;
+}
+
+/* Premium ambient background — radial gradients + grain */
+.app-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(120% 80% at 50% -10%, rgba(139, 92, 246, 0.30) 0%, rgba(7, 5, 18, 0) 55%),
+    radial-gradient(80%  60% at 85% 110%, rgba(236, 72, 153, 0.22) 0%, rgba(7, 5, 18, 0) 60%),
+    radial-gradient(70%  55% at 10% 100%, rgba(59, 130, 246, 0.18) 0%, rgba(7, 5, 18, 0) 60%),
+    linear-gradient(180deg, #070512 0%, #050310 100%);
+}
+
+.app-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/></svg>");
+  opacity: 0.045;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+/* Subtle glass panel — used for result cards and chrome */
+.glass {
+  background: linear-gradient(180deg, rgba(255,255,255,0.045) 0%, rgba(255,255,255,0.015) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+}
+
+/* Reusable text gradient */
+.text-gradient {
+  background: linear-gradient(135deg, #C4B5FD 0%, #F0ABFC 50%, #FBA5C8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Hide scrollbar on the canvas/visualizer area */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }
+
+/* Focus rings honoring the dark theme */
+*:focus-visible {
+  outline: 2px solid rgba(196, 181, 253, 0.7);
+  outline-offset: 3px;
+  border-radius: 8px;
+}

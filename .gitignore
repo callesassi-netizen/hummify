@@ -1,0 +1,14 @@
+node_modules
+.next
+out
+.DS_Store
+*.log
+.env*.local
+next-env.d.ts
+.vercel
+
+# TypeScript inkrementell byggcache — maskinspecifik, hör inte hemma i git
+tsconfig.tsbuildinfo
+
+# Claude Code: lokala runtime-filer och lås, inte delbart
+.claude/
